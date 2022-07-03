@@ -1,5 +1,7 @@
 package com.icr.katoochallenge.main.model
 
+import com.google.gson.annotations.SerializedName
+
 data class IngredientsResponse(
-    val drinks: List<Ingredient>
+    @SerializedName("drinks") val ingredients: List<Ingredient>
 )

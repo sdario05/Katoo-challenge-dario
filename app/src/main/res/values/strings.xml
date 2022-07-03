@@ -12,4 +12,6 @@
 
     <string name="ingredients">Katoo: Ingredientes</string>
     <string name="cocktails">Katoo: Cócteles</string>
+    <string name="search">Buscar</string>
+    <string name="enter_ingredient">Ingrese ingrediente...</string>
 </resources>
