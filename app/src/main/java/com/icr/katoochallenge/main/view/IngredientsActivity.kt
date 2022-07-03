@@ -1,9 +1,11 @@
 package com.icr.katoochallenge.main.view
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.icr.katoochallenge.R
 import com.icr.katoochallenge.cocktails.view.CocktailsActivity
@@ -34,7 +36,16 @@ class IngredientsActivity:  AppCompatActivity() {
     private fun observeToLiveData() {
         viewModel.ingredientsLiveData.observe(this, Observer {response ->
             ingredients = response.ingredients
+
+            et_search.apply {
+                isEnabled = true
+                hint = getString(R.string.enter_ingredient)
+                backgroundTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(this@IngredientsActivity, R.color.white)
+                )
+            }
             progressBar.visibility = View.GONE
+
             adapter = IngredientsAdapter(
                 response.ingredients.map { it.ingredient },
                 object: IngredientsAdapter.OnIngredientClickListener {
